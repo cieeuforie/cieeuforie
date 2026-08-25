@@ -1,11 +1,16 @@
+import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
 
 export default function Header() {
 
-    // Toggle menu for mobile 
+    // State
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
-        // 
+    // Toggle menu for mobile 
+    const handleMobileNav = (isOpen: boolean) => {
+        setIsOpen(isOpen);
+    }
 
     return (
         <header
@@ -24,9 +29,17 @@ export default function Header() {
                 />
             </div>
             <div>
-                <GiHamburgerMenu className="text-xl cursor-pointer" />
-                <ImCross className="text-xl cursor-pointer" />
-
+                {isOpen ? (
+                    <ImCross
+                        className="text-xl cursor-pointer"
+                        onClick={() => handleMobileNav(false)}
+                    />
+                ) : (
+                    <GiHamburgerMenu
+                        className="text-xl cursor-pointer"
+                        onClick={() => handleMobileNav(true)}
+                    />
+                )}
             </div>
         </header>
     )
