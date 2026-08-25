@@ -1,13 +1,7 @@
 @import 'tailwindcss';
 
-:root {
-  color-scheme: light dark;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* Color background customized*/
 
-body {
-  margin: 0;
+@theme {
+  --color-dark-brown: #513505;
 }
