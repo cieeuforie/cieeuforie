@@ -1,7 +1,7 @@
 export default function Header() {
     return (
         <header
-            className="flex bg-dark-brown"
+            className="flex bg-dark-brown text-white font-patrick-hand"
         >
             <div
                 className="flex gap-2"

@@ -1,7 +1,11 @@
 @import 'tailwindcss';
 
-/* Color background customized*/
-
 @theme {
+
+  /* Color background customized*/
   --color-dark-brown: #513505;
+
+  /* Imported fonts */
+  --font-patrick-hand: 'Patrick Hand', cursive;
+
 }
