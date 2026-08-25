@@ -1,7 +1,9 @@
+import { GiHamburgerMenu } from "react-icons/gi";
+
 export default function Header() {
     return (
         <header
-            className="flex justify-between bg-dark-brown text-white font-patrick-hand p-4 text-base"
+            className="flex justify-between items-center bg-dark-brown text-white font-patrick-hand p-4 text-base"
         >
             <div
                 className="flex items-center gap-2"
@@ -15,7 +17,9 @@ export default function Header() {
                     className="w-[32px] h-[32px]"
                 />
             </div>
-            <div>logo</div>
+            <div>
+                <GiHamburgerMenu className="text-xl" />
+            </div>
         </header>
     )
 }
