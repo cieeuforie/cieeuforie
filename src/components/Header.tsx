@@ -47,27 +47,28 @@ export default function Header() {
             </div>
 
             {/* MOBILE NAV */}
-            {isOpen && (
                 <nav
-                    className="flex flex-col items-center text-center absolute bg-dark-brown w-full top-full left-0"
+                    className={`grid absolute bg-dark-brown w-full top-full left-0 transition-all duration-300 ease-in-out
+                    ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
                 >
-                    <Link
-                        to="/spectacles"
-                        className="flex justify-center items-center w-full border-b-1 py-2 hover:bg-white hover:text-dark-brown"
-                    >
-                        Les spectacles
-                    </Link>
-                    <Link to="/presentation" className="flex justify-center items-center w-full border-b-1 py-2 hover:bg-white hover:text-dark-brown">
-                        Présentation
-                    </Link>
-                    <Link to="/agenda" className="flex justify-center items-center w-full border-b-1 py-2 hover:bg-white hover:text-dark-brown">
-                        Agenda
-                    </Link>
-                    <Link to="/contact" className="flex justify-center items-center w-full border-b-1 py-2 hover:bg-white hover:text-dark-brown">
-                        Contact
-                    </Link>
+                    <div className="overflow-hidden flex flex-col items-center text-center">
+                        <Link
+                            to="/spectacles"
+                            className="flex justify-center items-center w-full border-b-1 py-2 hover:bg-white hover:text-dark-brown"
+                        >
+                            Les spectacles
+                        </Link>
+                        <Link to="/presentation" className="flex justify-center items-center w-full border-b-1 py-2 hover:bg-white hover:text-dark-brown">
+                            Présentation
+                        </Link>
+                        <Link to="/agenda" className="flex justify-center items-center w-full border-b-1 py-2 hover:bg-white hover:text-dark-brown">
+                            Agenda
+                        </Link>
+                        <Link to="/contact" className="flex justify-center items-center w-full border-b-1 py-2 hover:bg-white hover:text-dark-brown">
+                            Contact
+                        </Link>
+                    </div>
                 </nav>
-            )}
         </header>
     )
 }
