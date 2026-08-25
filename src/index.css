@@ -1,11 +1,12 @@
-:root {
-  color-scheme: light dark;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import 'tailwindcss';
 
-body {
-  margin: 0;
+@theme {
+
+  /* Color background customized*/
+  --color-dark-brown: #513505;
+
+  /* Imported fonts */
+  --font-patrick-hand: 'Patrick Hand', cursive;
+  --font-euphoria-script: 'Euphoria Script', cursive;
+
 }
