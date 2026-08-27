@@ -10,7 +10,7 @@ export default function Footer() {
 
             {/* TOP PART */}
             <div 
-                className="flex items-center justify-center text-xl"
+                className="flex items-center py-4 justify-center text-xl"
             >
                 <p>
                     La Compagnie eu<span className="font-euphoria-script text-2xl">F</span>orie
@@ -23,7 +23,7 @@ export default function Footer() {
             </div>
 
             {/* MIDDLE PART */}
-            <div className="flex justify-between pb-6 border-b-1">
+            <div className="flex justify-between w-full max-w-xl mx-auto">
 
                 {/* SOCIALS PARTS */}
                 <div className="flex flex-col gap-2">
@@ -65,7 +65,7 @@ export default function Footer() {
             </div>
 
             {/* BOTTOM PART */}
-            <div className="flex flex-col text-center">
+            <div className="flex flex-col text-center border-t-1 pt-6">
                 <p className="flex items-center justify-center gap-1">
                     <FaRegCopyright /> 2026 Compagnie euForie - Tous droits réservés
                 </p>
