@@ -1,15 +1,19 @@
-import { FaInstagram, FaFacebook, FaEnvelope } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaEnvelope, FaRegCopyright } from "react-icons/fa";
 import { FiYoutube } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
-        <footer>
+        <footer 
+            className="flex flex-col gap-4 p-4 bg-dark-brown text-white font-patrick-hand"
+        >
 
             {/* TOP PART */}
-            <div>
+            <div 
+                className="flex items-center justify-center text-xl"
+            >
                 <p>
-                    La Compagnie eu<span className="font-euphoria-script text-xl">F</span>orie
+                    La Compagnie eu<span className="font-euphoria-script text-2xl">F</span>orie
                 </p>
                 <img
                     src="/images/cie-euforie-logo-blanc.png"
@@ -19,12 +23,12 @@ export default function Footer() {
             </div>
 
             {/* MIDDLE PART */}
-            <div>
+            <div className="flex justify-between pb-6 border-b-1">
 
                 {/* SOCIALS PARTS */}
-                <div>
-                    <p>Suivez-nous</p>
-                    <nav aria-label="Réseaux sociaux">
+                <div className="flex flex-col gap-2">
+                    <p className="text-xl">Suivez-nous :</p>
+                    <nav className="grid grid-cols-2 gap-2 text-2xl cursor-pointer" aria-label="Réseaux sociaux">
                         <a href="https://www.instagram.com/euforiecompagnie?igsh=OW03bXZmaGNkeXZo" target="_blank" rel="noopener noreferrer">
                             <FaInstagram />
                         </a>
@@ -41,9 +45,9 @@ export default function Footer() {
                 </div>
 
                 {/* PRACTICAL INFORMATIONS  */}
-                <div>
-                    <p>Infos pratiques:</p>
-                    <nav aria-label="Informations pratiques">
+                <div className="flex flex-col gap-2 pr-4">
+                    <p className="text-xl">Infos pratiques :</p>
+                    <nav className="flex flex-col cursor-pointer" aria-label="Informations pratiques">
                         <Link to="/spectacles">
                             Les spectacles
                         </Link>
@@ -61,8 +65,10 @@ export default function Footer() {
             </div>
 
             {/* BOTTOM PART */}
-            <div>
-                <p>2026 Compagnie euForie - Tous droits réservés</p>
+            <div className="flex flex-col text-center">
+                <p className="flex items-center justify-center gap-1">
+                    <FaRegCopyright /> 2026 Compagnie euForie - Tous droits réservés
+                </p>
                 <p>Site réalisé par Mathieu Bourasseau</p>
             </div>
         </footer>
