@@ -10,4 +10,7 @@
   --font-euphoria-script: 'Euphoria Script', cursive;
   --font-pirata-one: 'Pirata One', cursive;
 
+  /* Background images */
+  --background-image-presentation: url('/images/background/background-presentation-euforie.svg');
+
 }

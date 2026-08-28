@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import CompanyName from "../components/CompanyName"
+import { presentation } from "../data/presentation"
 import { fontClassMap, shows } from "../data/shows"
 
 export default function HomePage() {
@@ -7,7 +9,7 @@ export default function HomePage() {
         <>
             {/* MAIN TITLE */}
             <h1 className="text-center text-2xl py-2">
-                La Compagnie eu<span className="font-euphoria-script text-3xl">F</span>orie
+                La Compagnie <CompanyName />
             </h1>
 
             {/* CURRENT SHOWS SECTION */}
@@ -27,6 +29,18 @@ export default function HomePage() {
                 </div>
             </section>
 
+            {/* ASSOCIATION PRESENTATION */}
+            <section className="flex flex-col gap-6 py-4 px-4 -mx-2 bg-presentation bg-cover bg-center bg-no-repeat">
+                <div className="flex flex-col gap-2">
+                    <h2 className="text-center text-xl py-2">
+                        {presentation.titleBefore}<CompanyName />{presentation.titleAfter}
+                    </h2>
+                    <p>{presentation.description}</p>
+                    <p className="font-euphoria-script text-2xl">{presentation.slogan}</p>
+                </div>
+                <img src={presentation.image} className="rounded-xl" alt="Présentation de la Compagnieu euForie sur scène" />
+                <Link className="border-1 p-2 rounded-xl self-center shadow-md bg-dark-brown text-white hover:bg-white hover:text-dark-brown" to="/presentation">{presentation.linkText}</Link>
+            </section>
         </>
 
     )
