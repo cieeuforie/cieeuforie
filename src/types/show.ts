@@ -6,6 +6,7 @@ export type Show = {
     id: number
     slug: string
     title: string
+    image: string
     youtubeUrl: string
     featured: boolean
     titleFont: FontName

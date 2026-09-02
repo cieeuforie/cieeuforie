@@ -30,7 +30,7 @@ export default function HomePage() {
             </section>
 
             {/* ASSOCIATION PRESENTATION */}
-            <section className="flex flex-col gap-6 py-4 px-4 -mx-2 bg-presentation bg-cover bg-center bg-no-repeat">
+            <section className="flex flex-col gap-6 pt-4 px-4 -mx-2 bg-presentation bg-cover bg-center bg-no-repeat">
                 <div className="flex flex-col gap-2">
                     <h2 className="text-center text-xl py-2">
                         {presentation.titleBefore}<CompanyName />{presentation.titleAfter}
@@ -40,6 +40,13 @@ export default function HomePage() {
                 </div>
                 <img src={presentation.image} className="rounded-xl" alt="Présentation de la Compagnieu euForie sur scène" />
                 <Link className="border-1 p-2 rounded-xl self-center shadow-md bg-dark-brown text-white hover:bg-white hover:text-dark-brown" to="/presentation">{presentation.linkText}</Link>
+            </section>
+
+            {/* AGENDA SECTION */}
+            <section className="bg-dark-brown px-4 -mx-2 ">
+                <div>
+                    <h2 className="text-center text-white text-xl py-2">Agenda</h2>
+                </div>
             </section>
         </>
 
