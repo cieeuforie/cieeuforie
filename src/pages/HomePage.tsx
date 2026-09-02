@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom"
+
 import CompanyName from "../components/CompanyName"
 import { presentation } from "../data/presentation"
 import { representations } from "../data/representation"
 import { fontClassMap, shows } from "../data/shows"
+import { contactSection } from "../data/contactSection"
+
 import { CiCalendarDate } from "react-icons/ci";
 import { IoLocationOutline } from "react-icons/io5";
 
@@ -89,10 +92,10 @@ export default function HomePage() {
             </section>
 
             {/* CONTACT SECTION */}
-            <section>
+            <section id="contact">
                 <div>
-                    <h2>Contact</h2>
-                    <p>Des questions ? Une demande de devis ?</p>
+                    <h2>{contactSection.title}</h2>
+                    <p>{contactSection.subtitle}</p>
                 </div>
             </section>
         </>
