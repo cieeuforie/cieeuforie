@@ -7,7 +7,7 @@ function App() {
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-1 font-patrick-hand p-2 text-dark-brown ">
+            <main className="flex-1 font-patrick-hand px-2 pt-2 text-dark-brown">
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                 </Routes>

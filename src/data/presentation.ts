@@ -1,6 +1,6 @@
 import type { Presentation } from "../types/presentation"
 
-// À remplacer par un fetch WordPress (page fixe ou options page) une fois prêt
+// Raw data before using WP API
 export const presentation: Presentation = {
     titleBefore: "La Compagnie ",
     titleAfter: " en quelques mots",
