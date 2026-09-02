@@ -93,12 +93,12 @@ export default function HomePage() {
             </section>
 
             {/* CONTACT SECTION */}
-            <section id="contact">
-                <div>
-                    <h2>{contactSection.title}</h2>
+            <section id="contact" className="flex flex-col py-4 px-4 -mx-2 bg-presentation bg-cover bg-center bg-no-repeat">
+                <div className="flex flex-col gap-2 py-4 items-center">
+                    <h2 className="text-xl">{contactSection.title}</h2>
                     <p>{contactSection.subtitle}</p>
-                    <ContactForm />
                 </div>
+                <ContactForm />
             </section>
         </>
 

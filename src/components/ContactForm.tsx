@@ -38,10 +38,10 @@ export default function ContactForm() {
     };
 
     return (
-        <form className="border-1 border-dark-brown" onSubmit={handleSubmit}>
-            <fieldset>
-                <div>
-                    <div className="flex flex-col">
+        <form className="border-1 rounded-xl p-4 border-dark-brown text-sm" onSubmit={handleSubmit}>
+            <fieldset className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2">
                         <label htmlFor="firstName">Prénom</label>
                         <input
                             type="text"
@@ -50,9 +50,10 @@ export default function ContactForm() {
                             name="firstName"
                             value={formData.firstName}
                             onChange={handleChange}
+                            className="bg-white p-2 rounded-lg border-1 border-dark-brown shadow-[0_6px_4px_rgba(81,53,5,0.35)]"
                         />
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col gap-2">
                         <label htmlFor="lastName">Nom</label>
                         <input
                             type="text"
@@ -61,20 +62,22 @@ export default function ContactForm() {
                             name="lastName"
                             value={formData.lastName}
                             onChange={handleChange}
+                            className="bg-white p-2 rounded-lg border-1 border-dark-brown shadow-[0_6px_4px_rgba(81,53,5,0.35)]"
                         />
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col gap-2">
                         <label htmlFor="email">Email</label>
                         <input
                             type="email"
-                            placeholder="monmail@mail.com"
+                            placeholder="mail@mail.com"
                             id="email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
+                            className="bg-white p-2 rounded-lg border-1 border-dark-brown shadow-[0_6px_4px_rgba(81,53,5,0.35)]"
                         />
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col gap-2">
                         <label htmlFor="message">Votre message</label>
                         <textarea
                             id="message"
@@ -82,13 +85,14 @@ export default function ContactForm() {
                             value={formData.message}
                             onChange={handleChange}
                             rows={5}
+                            className="bg-white p-2 rounded-lg border-1 border-dark-brown shadow-[0_6px_4px_rgba(81,53,5,0.35)] resize-none"
                         />
                     </div>
                 </div>
 
-                <button 
+                <button
                     type="submit"
-                    className="flex items-center justify-center"
+                    className="flex items-center justify-center gap-2 self-center bg-dark-brown text-white py-2 px-4 rounded-xl shadow-[0_6px_4px_rgba(81,53,5,0.35)]"
                 >
                     Envoyer
                     <GoPaperAirplane />
