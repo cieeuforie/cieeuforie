@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import type { Contact } from "../types/contact";
 import { useNavigate } from "react-router-dom";
 
@@ -32,10 +32,22 @@ export default function ContactForm() {
     const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        // When wordpress API will be set up a fetch will be necessary to send data to wordpress endpoint (wp_mail)
+        try {
+            // When wordpress API will be set up a fetch will be necessary to send data to wordpress endpoint (wp_mail)
 
-        setSuccessMessage("Message envoyé avec succès ! La Compagnie vous répondra dans les plus bref délais.")
+            setSuccessMessage("Message envoyé avec succès ! La Compagnie vous répondra dans les plus bref délais.")
+        } catch {
+            setErrorMessage("Une erreur est survenue, merci de réessayer plus tard.")
+        }
     };
+
+    // Redirect to the homepage a couple seconds after a successful submission
+    useEffect(() => {
+        if (!successMessage) return
+
+        const timer = setTimeout(() => navigate("/"), 2500)
+        return () => clearTimeout(timer)
+    }, [successMessage, navigate])
 
     return (
         <form className="border-1 rounded-xl p-4 mb-8 border-dark-brown text-sm md:text-base lg:text-lg" onSubmit={handleSubmit}>
@@ -91,6 +103,9 @@ export default function ContactForm() {
                         />
                     </div>
                 </div>
+
+                {successMessage && <p className="text-green-700">{successMessage}</p>}
+                {errorMessage && <p className="text-red-700">{errorMessage}</p>}
 
                 <button
                     type="submit"
