@@ -8,6 +8,7 @@ import { contactSection } from "../data/contactSection"
 
 import { CiCalendarDate } from "react-icons/ci";
 import { IoLocationOutline } from "react-icons/io5";
+import ContactForm from "../components/ContactForm"
 
 const outlineButtonClasses = "border-1 p-2 rounded-xl shadow-md transition-colors duration-200 hover:bg-dark-brown hover:text-white"
 const filledButtonClasses = "border-1 p-2 rounded-xl shadow-md bg-dark-brown text-white transition-colors duration-200 hover:bg-white hover:text-dark-brown"
@@ -96,6 +97,7 @@ export default function HomePage() {
                 <div>
                     <h2>{contactSection.title}</h2>
                     <p>{contactSection.subtitle}</p>
+                    <ContactForm />
                 </div>
             </section>
         </>

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import type { Contact } from "../types/contact";
 import { useNavigate } from "react-router-dom";
 
@@ -7,24 +7,75 @@ export default function ContactForm() {
 
     // States required for form
 
-        // Success or error message
-        const[successMessage, setSuccessMessage] = useState<string>("");
-        const[errorMessage, setErrorMessage] = useState<string>("");
+    // Success or error message
+    const [successMessage, setSuccessMessage] = useState<string>("");
+    const [errorMessage, setErrorMessage] = useState<string>("");
 
-        // Form
-        const[formData, setFormData] = useState<Contact>({
-            firstName: "",
-            lastName: "",
-            email: "",
-            message: ""
-        });
+    // Form
+    const [formData, setFormData] = useState<Contact>({
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: ""
+    });
 
-        // Navigation to redirect once the form submitted
-        const navigate = useNavigate();
+    // Navigation to redirect once the form submitted
+    const navigate = useNavigate();
+
+    // Function to get value typed in input form
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+    };
+
 
     return (
-        <div>
+        <form className="border-1 border-dark-brown">
+            <fieldset>
+                <div className="flex flex-col">
+                    <label htmlFor="firstName">Prénom</label>
+                    <input
+                        type="text"
+                        placeholder="John"
+                        id="firstName"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="flex flex-col">
+                    <label htmlFor="lastName">Nom</label>
+                    <input
+                        type="text"
+                        placeholder="Wick"
+                        id="lastName"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="flex flex-col">
+                    <label htmlFor="email">Nom</label>
+                    <input
+                        type="email"
+                        placeholder="monmail@mail.com"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="flex flex-col">
+                    <label htmlFor="message">Votre message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        rows={5}
+                    />
+                </div>
 
-        </div>
+            </fieldset>
+        </form>
     )
 }
