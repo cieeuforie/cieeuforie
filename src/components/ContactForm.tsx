@@ -38,7 +38,7 @@ export default function ContactForm() {
     };
 
     return (
-        <form className="border-1 rounded-xl p-4 border-dark-brown text-sm" onSubmit={handleSubmit}>
+        <form className="border-1 rounded-xl p-4 mb-8 border-dark-brown text-sm" onSubmit={handleSubmit}>
             <fieldset className="flex flex-col gap-4">
                 <div className="flex flex-col gap-4">
                     <div className="flex flex-col gap-2">
