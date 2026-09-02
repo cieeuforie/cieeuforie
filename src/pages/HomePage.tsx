@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import CompanyName from "../components/CompanyName"
 import { presentation } from "../data/presentation"
+import { representations } from "../data/representation"
 import { fontClassMap, shows } from "../data/shows"
 
 export default function HomePage() {
@@ -46,6 +47,30 @@ export default function HomePage() {
             <section className="bg-dark-brown px-4 -mx-2 ">
                 <div>
                     <h2 className="text-center text-white text-xl py-2">Agenda</h2>
+                    <div>
+                        {representations.map((rep) => {
+                            const show = shows.find((s) => s.id === rep.showId)
+                            if (!show) return null
+
+                            return (
+                                <article key={rep.id}>
+                                    <img src={show.image} alt="" />
+                                    <div className="bg-light-brown">
+                                        <h3>{show.title}</h3>
+                                        <div>
+                                            <span>logo</span>
+                                            <p>{rep.date}</p>
+                                        </div>
+                                        <div>
+                                            <span>logo</span>
+                                            <p>{rep.location}</p>
+                                        </div>
+                                        <p>Programmer ce spectacle chez vous</p>
+                                    </div>
+                                </article>
+                            )
+                        })}
+                    </div>
                 </div>
             </section>
         </>
