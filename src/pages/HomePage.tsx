@@ -6,6 +6,9 @@ import { fontClassMap, shows } from "../data/shows"
 import { CiCalendarDate } from "react-icons/ci";
 import { IoLocationOutline } from "react-icons/io5";
 
+const outlineButtonClasses = "border-1 p-2 rounded-xl shadow-md transition-colors duration-200 hover:bg-dark-brown hover:text-white"
+const filledButtonClasses = "border-1 p-2 rounded-xl shadow-md bg-dark-brown text-white transition-colors duration-200 hover:bg-white hover:text-dark-brown"
+
 export default function HomePage() {
 
     return (
@@ -26,7 +29,7 @@ export default function HomePage() {
                         >
                             <h3 className={`text-lg ${fontClassMap[show.titleFont]}`}>{show.title}</h3>
                             <iframe className="rounded-lg" src={show.youtubeUrl} title={show.title} />
-                            <Link className="border-1 p-2 rounded-xl self-center shadow-md transition-colors duration-200 hover:bg-dark-brown hover:text-white" to={`/spectacles/${show.slug}`}>Découvrir le spectacle</Link>
+                            <Link className={`${outlineButtonClasses} self-center`} to={`/spectacles/${show.slug}`}>Découvrir le spectacle</Link>
                         </article>
                     ))}
                 </div>
@@ -42,13 +45,13 @@ export default function HomePage() {
                     <p className="font-euphoria-script text-2xl">{presentation.slogan}</p>
                 </div>
                 <img src={presentation.image} className="rounded-xl" alt="Présentation de la Compagnieu euForie sur scène" />
-                <Link className="border-1 p-2 rounded-xl self-center shadow-md bg-dark-brown text-white transition-colors duration-200 hover:bg-white hover:text-dark-brown" to="/presentation">{presentation.linkText}</Link>
+                <Link className={`${filledButtonClasses} self-center`} to="/presentation">{presentation.linkText}</Link>
             </section>
 
             {/* AGENDA SECTION */}
-            <section className="bg-dark-brown px-4 -mx-2 ">
+            <section className="bg-dark-brown px-4 -mx-2">
                 <div className="flex flex-col items-center gap-4">
-                    <h2 className="text-center text-white text-xl py-2">Agenda</h2>
+                    <h2 className="text-center text-white text-xl mt-6">Agenda</h2>
                     <div className="flex flex-col items-center justify-center gap-6">
                         {representations.map((rep) => {
                             const show = shows.find((s) => s.id === rep.showId)
@@ -61,7 +64,7 @@ export default function HomePage() {
                                 >
                                     <img src={show.image} alt="" />
                                     <div className="bg-light-brown flex flex-col gap-4 pl-4 py-4">
-                                        <h3 className={`${fontClassMap[show.titleFont]}`}>{show.title}</h3>
+                                        <h3 className={fontClassMap[show.titleFont]}>{show.title}</h3>
                                         <div className="flex items-center gap-2">
                                             <CiCalendarDate className="text-xl" />
                                             <p className="font-alice">{rep.date}</p>
@@ -72,7 +75,7 @@ export default function HomePage() {
                                         </div>
                                         <a
                                             href="#contact"
-                                            className="border-1 p-2 rounded-xl self-start shadow-md transition-colors duration-200 hover:bg-dark-brown hover:text-white"
+                                            className={`${outlineButtonClasses} self-start`}
                                         >
                                             Programmer ce spectacle chez vous
                                         </a>
@@ -81,8 +84,13 @@ export default function HomePage() {
                             )
                         })}
                     </div>
-                    <Link className="border-1 p-2 rounded-xl self-center shadow-md bg-dark-brown text-white transition-colors duration-200 hover:bg-white hover:text-dark-brown mb-6" to="/agenda">Voir toutes les dates</Link>
+                    <Link className={`${filledButtonClasses} self-center mb-6`} to="/agenda">Voir toutes les dates</Link>
                 </div>
+            </section>
+
+            {/* CONTACT SECTION */}
+            <section>
+                
             </section>
         </>
 
