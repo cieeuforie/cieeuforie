@@ -21,13 +21,13 @@ export default function HomePage() {
     return (
         <>
             {/* MAIN TITLE */}
-            <h1 className="text-center text-2xl py-2 md:text-3xl">
+            <h1 className="text-center text-2xl py-2 md:text-3xl lg:text-4xl">
                 La Compagnie <CompanyName />
             </h1>
 
             {/* CURRENT SHOWS SECTION */}
-            <section className="flex flex-col items-center gap-4 py-4 justify-between">
-                <h2 className="text-xl py-2 md:text-2xl">Les spectacles du moment</h2>
+            <section className="flex flex-col items-center gap-4 py-4 justify-between md:py-6 lg:py-10">
+                <h2 className="text-xl py-2 md:text-2xl lg:text-3xl">Les spectacles du moment</h2>
                 <div className="flex flex-col gap-8 md:flex-row md:gap-12">
                     {shows.map((show) => (
                         <article
@@ -35,8 +35,8 @@ export default function HomePage() {
                             className="text-center flex flex-col gap-4"
                         >
                             <h3 className={`text-lg md:text-xl ${fontClassMap[show.titleFont]}`}>{show.title}</h3>
-                            <iframe className="rounded-lg" src={show.youtubeUrl} title={show.title} />
-                            <Link className={`${outlineButtonClasses} self-center`} to={`/spectacles/${show.slug}`}>Découvrir le spectacle</Link>
+                            <iframe className="rounded-lg w-[280px] md:w-[350px] lg:w-[450px] aspect-video" src={show.youtubeUrl} title={show.title} />
+                            <Link className={`${outlineButtonClasses} self-center !shadow-[0_6px_4px_rgba(81,53,5,0.35)]`} to={`/spectacles/${show.slug}`}>Découvrir le spectacle</Link>
                         </article>
                     ))}
                 </div>
@@ -44,9 +44,9 @@ export default function HomePage() {
 
             {/* ASSOCIATION PRESENTATION */}
             <section className="py-6 md:py-0 pl-4 pr-4 md:pr-0 -mx-2 bg-presentation bg-cover bg-center bg-no-repeat">
-                <div className="flex flex-col gap-6 md:gap-0 max-w-xl mx-auto md:flex-row md:max-w-6xl">
-                    <div className="flex flex-col text-sm gap-2 md:text-base md:w-1/2 md:justify-center md:px-5 md:py-4">
-                        <h2 className="text-center text-xl py-2 md:text-left md:text-2xl">
+                <div className="flex flex-col gap-6 md:gap-0 max-w-xl mx-auto md:flex-row md:max-w-none">
+                    <div className="flex flex-col text-sm gap-2 md:text-base md:basis-1/2 md:grow-0 md:shrink-0 md:max-w-4xl md:justify-center md:px-5 md:py-4">
+                        <h2 className="text-center text-xl py-2 md:text-left md:text-2xl lg:text-3xl">
                             {presentation.titleBefore}<CompanyName />{presentation.titleAfter}
                         </h2>
                         <p>{presentation.description}</p>
@@ -55,7 +55,7 @@ export default function HomePage() {
                     </div>
                     <img
                         src={presentation.image}
-                        className="w-full h-64 md:h-auto md:w-1/2 object-cover rounded-xl md:rounded-none"
+                        className="w-full h-64 md:h-auto md:w-auto md:min-w-0 md:flex-1 object-cover rounded-xl md:rounded-none"
                         alt="Présentation de la Compagnieu euForie sur scène"
                     />
                 </div>
@@ -64,8 +64,8 @@ export default function HomePage() {
             {/* AGENDA SECTION */}
             <section className="bg-dark-brown px-4 -mx-2">
                 <div className="flex flex-col items-center gap-4 md:gap-8">
-                    <h2 className="text-center text-white text-xl mt-6 md:text-2xl">Agenda</h2>
-                    <div className="flex flex-col items-center justify-center gap-6 max-w-xl mx-auto md:grid md:grid-cols-2 md:items-stretch md:max-w-6xl lg:grid-cols-3">
+                    <h2 className="text-center text-white text-xl mt-6 md:text-2xl lg:text-3xl">Agenda</h2>
+                    <div className="flex flex-col items-center justify-center gap-6 max-w-md mx-auto md:grid md:grid-cols-2 md:items-stretch md:max-w-6xl lg:grid-cols-3">
                         {representations.map((rep) => {
                             const show = shows.find((s) => s.id === rep.showId)
                             if (!show) return null
@@ -73,18 +73,18 @@ export default function HomePage() {
                             return (
                                 <article
                                     key={rep.id}
-                                    className="flex flex-col rounded-xl text-sm md:text-base overflow-hidden"
+                                    className="flex flex-col w-full rounded-xl text-sm md:text-base lg:text-lg overflow-hidden"
                                 >
                                     <img src={show.image} alt="" className="w-full h-48 object-cover" />
                                     <div className="bg-light-brown flex flex-col flex-1 justify-between gap-4 pl-4 py-4">
                                         <div className="flex flex-col gap-4">
-                                            <h3 className={`md:text-xl ${fontClassMap[show.titleFont]}`}>{show.title}</h3>
+                                            <h3 className={`md:text-xl lg:text-2xl ${fontClassMap[show.titleFont]}`}>{show.title}</h3>
                                             <div className="flex items-center gap-2">
-                                                <CiCalendarDate className="text-xl" />
+                                                <CiCalendarDate className="text-xl lg:text-2xl" />
                                                 <p className="font-alice">{rep.date}</p>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <IoLocationOutline className="text-xl" />
+                                                <IoLocationOutline className="text-xl lg:text-2xl" />
                                                 <p className="font-alice">{rep.location}</p>
                                             </div>
                                         </div>
@@ -106,14 +106,14 @@ export default function HomePage() {
             {/* CONTACT SECTION */}
             <section id="contact" className="flex flex-col py-4 px-4 -mx-2 bg-presentation bg-cover bg-center bg-no-repeat md:gap-4">
                 <div className="flex flex-col gap-2 py-4 items-center text-center">
-                    <h2 className="text-xl md:text-2xl">{contactSection.title}</h2>
-                    <p className="md:text-[18px]">{contactSection.subtitle}</p>
+                    <h2 className="text-xl md:text-2xl lg:text-3xl">{contactSection.title}</h2>
+                    <p className="md:text-lg lg:text-xl">{contactSection.subtitle}</p>
                 </div>
 
                 <div className="flex flex-col gap-8 max-w-xl mx-auto w-full md:flex-row md:items-center md:justify-center md:gap-16 md:max-w-5xl">
                     {/* CONTACT */}
-                    <div className="flex flex-col items-center text-center gap-2 md:w-1/3 md:items-start md:text-left md:text-lg">
-                        <h3>Coordonnées :</h3>
+                    <div className="flex flex-col items-center text-center gap-2 md:w-1/3 md:items-start md:text-left md:text-lg lg:text-xl">
+                        <h3 className="text-lg md:text-xl lg:text-2xl">Coordonnées :</h3>
                         <p>Tél : {contactInfo.phone}</p>
                         <p>{contactInfo.email}</p>
                         <p>{contactInfo.address}</p>
