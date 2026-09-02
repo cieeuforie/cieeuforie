@@ -90,7 +90,10 @@ export default function HomePage() {
 
             {/* CONTACT SECTION */}
             <section>
-                
+                <div>
+                    <h2>Contact</h2>
+                    <p>Des questions ? Une demande de devis ?</p>
+                </div>
             </section>
         </>
 
